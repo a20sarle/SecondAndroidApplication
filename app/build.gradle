@@ -41,15 +41,15 @@ dependencies {
 task archive(type: Zip) {
     def projectDir = "${projectDir.parentFile}/"
     delete fileTree(projectDir) {
-        include '.zip'
+        include '*.zip'
     }
 
     def projectDirFile = new File(projectDir)
     from projectDirFile
     destinationDirectory = projectDirFile
     include '**'
-    exclude '.zip'
-    exclude '*/.lock'
+    exclude '*.zip'
+    exclude '**/*.lock'
     exclude 'app/build'
     archiveFileName = {
         def stdout = new ByteArrayOutputStream()
