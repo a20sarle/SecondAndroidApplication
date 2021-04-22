@@ -48,8 +48,8 @@ task archive(type: Zip) {
     from projectDirFile
     destinationDirectory = projectDirFile
     include '**'
-    exclude '.zip'
-    exclude '*/.lock'
+    exclude '*.zip'
+    exclude '**/*.lock'
     exclude 'app/build'
     archiveFileName = {
         def stdout = new ByteArrayOutputStream()
