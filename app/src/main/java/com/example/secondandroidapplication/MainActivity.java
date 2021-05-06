@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String name= item.get(position).getName("name");
                 String location = item.get(position).getLocation("location");
-                Auxdata wiki = item.get(position).getAuxdata("auxdata");
+                String wiki = item.get(position).getAuxdata("auxdata").getImg();
 
                 String msg = name + " is located in " + location + " and the link is " + wiki + ".";
                 Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
