@@ -20,7 +20,7 @@
         android:id="@+id/toggle_button"
         android:textOff="show about"
         android:textOn="close about"
-        android:layout_width="200dp"
+        android:layout_width="130dp"
         android:layout_height="50dp"
         android:text="ToggleButton"
         app:layout_constraintBottom_toBottomOf="parent"
