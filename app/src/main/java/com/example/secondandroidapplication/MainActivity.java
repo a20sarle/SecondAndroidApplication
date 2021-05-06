@@ -31,28 +31,12 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList <webService> item;
     private ArrayAdapter<webService> adapter;
 
-    ToggleButton toggleButton;
-    TextView textViewAbout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        textViewAbout = findViewById(R.id.text_view_about);
-        textViewAbout.setVisibility(View.GONE);
-        toggleButton = findViewById(R.id.toggle_button);
-        toggleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(((ToggleButton)v).isChecked()){
-                    textViewAbout.setVisibility(View.VISIBLE);
-                }
-                else{
-                    textViewAbout.setVisibility(View.GONE);
-                }
-            }
-        });
 
         item = new ArrayList<>();
         adapter = new ArrayAdapter<webService>(this, R.layout.list_item_textview,R.id.list_item_textview,item);
