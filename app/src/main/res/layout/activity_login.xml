@@ -9,8 +9,8 @@
     <Button
         android:id="@+id/button_login"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Show me adventures around the Julian Alps"
+        android:layout_height="60dp"
+        android:text="Show me adventures"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
