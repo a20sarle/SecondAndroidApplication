@@ -19,4 +19,8 @@ public class webService {
 
     @Override
     public String toString(){return name;}
+
+    public Auxdata getAuxdata() {
+        return auxdata;
+    }
 }

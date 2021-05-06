@@ -7,6 +7,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -31,12 +34,18 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList <webService> item;
     private ArrayAdapter<webService> adapter;
 
-
+    private WebView webView;
+    private webService[] webServices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        webView = findViewById(R.id.web_view);
+        webView.setWebViewClient(new WebViewClient());
+        WebSettings webSettings=webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
 
         item = new ArrayList<>();
         adapter = new ArrayAdapter<webService>(this, R.layout.list_item_textview,R.id.list_item_textview,item);
@@ -46,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showExternalWebPage(position);
+
                 String name= item.get(position).getName("name");
                 String location = item.get(position).getLocation("location");
                 String wiki = item.get(position).getAuxdata("auxdata").getImg();
@@ -55,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=a20sarle");
+    }
+
+    public void showExternalWebPage(int index){
+        // TODO: Add your code for showing external web page here
+        webView.loadUrl(webServices[index].getAuxdata().getWiki());
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -103,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
             try {
                 Gson gson=new Gson();
-                webService[] webServices;
+                /*webService[] webServices;*/
                 webServices=gson.fromJson(s,webService[].class);
                 item.clear();
                 for(int i=0; i <webServices.length; i++){
