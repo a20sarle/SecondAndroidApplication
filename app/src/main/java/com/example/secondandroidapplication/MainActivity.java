@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 String location = item.get(position).getLocation("location");
                 Auxdata wiki = item.get(position).getAuxdata("auxdata");
 
-                String msg = name + " is located in " + location + " MASL and located in " + wiki + ".";
+                String msg = name + " is located in " + location + " and the link is " + wiki + ".";
                 Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
             }
         });

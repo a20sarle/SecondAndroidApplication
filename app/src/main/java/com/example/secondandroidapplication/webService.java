@@ -16,4 +16,7 @@ public class webService {
     public Auxdata getAuxdata(String auxdata) {
         return this.auxdata;
     }
+
+    @Override
+    public String toString(){return name;}
 }
