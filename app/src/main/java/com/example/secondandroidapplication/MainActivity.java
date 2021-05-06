@@ -59,9 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
                 String name= item.get(position).getName("name");
                 String location = item.get(position).getLocation("location");
-                String wiki = item.get(position).getAuxdata("auxdata").getImg();
+                /*String wiki = item.get(position).getAuxdata("auxdata").getImg();*/
+                String category = item.get(position).getCategory("category");
 
-                String msg = name + " is located in " + location + " and the link is " + wiki + ".";
+                String msg = name + "\n\nLocation:  " + location + " \n\nTo-do: " + category;
                 Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
             }
         });
